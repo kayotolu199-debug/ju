@@ -1,55 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CircleLedger</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       max-width: 600px;
-      margin: 20px auto;
+      margin: 40px auto;
       padding: 0 20px;
-      background: #f9fbfd;
       color: #1a1f26;
+      background: #ffffff;
+      line-height: 1.6;
     }
     h1 {
       color: #0d4a8a;
       text-align: center;
       margin-bottom: 30px;
     }
-    .form-group {
-      margin-bottom: 16px;
-    }
-    input, button {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #cbd5e0;
-      border-radius: 8px;
+    p {
+      margin-bottom: 20px;
       font-size: 16px;
-      box-sizing: border-box;
     }
-    button {
-      background: #0d4a8a;
-      color: white;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      opacity: 0.9;
-    }
-    #proof {
-      display: none;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    @media print {
-      body * { display: none; }
-      #proof { display: block !important; }
+    .note {
+      background: #f0f7ff;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #0d4a8a;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -57,52 +36,28 @@
 
   <h1>CircleLedger</h1>
 
-  <div id="form">
-    <div class="form-group">
-      <input type="text" id="circleName" placeholder="Circle name (e.g., Sister Circle)">
-    </div>
-    <div class="form-group">
-      <input type="number" id="contribution" placeholder="Monthly contribution (£)">
-    </div>
-    <div class="form-group">
-      <input type="number" id="members" placeholder="Number of members">
-    </div>
-    <button onclick="saveProof()">Save as PDF</button>
+  <p>
+    A free, private tool for savings circles (<em>esusu</em>, <em>sou-sou</em>, partner).
+  </p>
+
+  <p>
+    CircleLedger helps members keep shared records of contributions — without apps, accounts, or data collection.
+  </p>
+
+  <div class="note">
+    <strong>How it works:</strong><br>
+    • Each member logs their own payments in a shared notebook or WhatsApp group.<br>
+    • At payout time, the group reviews the record together.<br>
+    • No central admin. No interest. No platform.
   </div>
 
-  <div id="proof">
-    <h2>CircleLedger — Proof of Participation</h2>
-    <p><strong>Circle:</strong> <span id="proofName">—</span></p>
-    <p><strong>Contribution:</strong> £<span id="proofAmount">—</span>/month</p>
-    <p><strong>Members:</strong> <span id="proofMembers">—</span></p>
-    <p style="margin-top:30px; font-size:0.85em; color:#666;">
-      This is a self-issued record for personal use.
-    </p>
-  </div>
+  <p>
+    This is not a financial service. It is a practice of mutual trust.
+  </p>
 
-  <script>
-    function saveProof() {
-      const name = document.getElementById('circleName').value || '—';
-      const amount = document.getElementById('contribution').value || '—';
-      const members = document.getElementById('members').value || '—';
-
-      document.getElementById('proofName').textContent = name;
-      document.getElementById('proofAmount').textContent = amount;
-      document.getElementById('proofMembers').textContent = members;
-
-      // Hide form, show proof
-      document.getElementById('form').style.display = 'none';
-      document.getElementById('proof').style.display = 'block';
-
-      // Trigger print (save as PDF)
-      setTimeout(() => {
-        window.print();
-        // Return to form after print
-        document.getElementById('form').style.display = 'block';
-        document.getElementById('proof').style.display = 'none';
-      }, 500);
-    }
-  </script>
+  <p style="margin-top: 40px; color: #666; font-size: 14px;">
+    © Toll Frame • Free forever • UK
+  </p>
 
 </body>
 </html>
